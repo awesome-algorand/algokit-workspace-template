@@ -1,0 +1,36 @@
+_tasks:
+  - "cd ./contracts && algokit init --template-url https://github.com/awesome-algorand/tealscript-algokit-template -n {{project_name}} --no-git --no-ide --no-bootstrap
+         -a ide_vscode false
+         -a ide_jetbrains false
+         -a use_github_actions false"
+  - "node ./.algokit/engineering-magic.js"
+  - "echo '==== Successfully initialized new smart contract 🚀 ===='"
+
+
+project_name:
+  type: str
+  help: Name of your new contract.
+  placeholder: "hello-world"
+  default: "hello-world"
+language:
+  type: str
+  help: The language you want to use for your new contract.
+  default: "typescript"
+  choices:
+    - "python"
+    - "typescript"
+    - "c#"
+template:
+  type: str
+  help: The flavor of contract you want to generate.
+  default: "tealscript"
+  choices:
+    tealscript:
+      value: "tealscript"
+      validator: "{% if language != 'typescript' %}Requires TypeScript{% endif %}"
+    beaker:
+      value: "beaker"
+      validator: "{% if language != 'python' %}Requires Python{% endif %}"
+    puya:
+      value: "tealscript"
+      validator: "{% if language != 'python' %}Requires Python{% endif %}"
