@@ -1,0 +1,9 @@
+[generate.typed-client]
+description = "Generate a typed client"
+path = ".algokit/create_client"
+[generate.site]
+description = "Adds new website to an existing project"
+path = ".algokit/create_site"
+[generate.contract]
+description = "Adds new contract to an existing project"
+path = ".algokit/create_contract"

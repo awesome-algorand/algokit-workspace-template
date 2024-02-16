@@ -1,0 +1,23 @@
+_tasks:
+  - "cd ./sites && algokit init -t {{framework}} -n {{project_name}} --no-git --no-ide --no-bootstrap
+         -a ide_vscode false
+         -a ide_jetbrains false
+         -a use_github_actions false"
+  - "node ./.algokit/engineering-magic.js"
+  - "echo '==== Successfully initialized new smart contract 🚀 ===='"
+
+
+project_name:
+  type: str
+  help: Name of your new website.
+  placeholder: "example.com"
+  default: "example.com"
+framework:
+  type: str
+  help: The library you want to use for your new website.
+  placeholder: "react"
+  default: "react"
+  choices:
+    - "react"
+    - "vue"
+    - "angular"

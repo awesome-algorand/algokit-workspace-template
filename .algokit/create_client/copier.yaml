@@ -1,0 +1,18 @@
+_tasks:
+  - "cd ./contracts/{{project_name}} && algokit generate client -o ./client -l {{language}}"
+  - "node ./.algokit/engineering-magic.js"
+  - "echo '==== Successfully initialized new smart contract 🚀 ===='"
+project_name:
+  type: str
+  help: Name of the contract
+  placeholder: "hello-world"
+  default: "hello-world"
+framework:
+  type: str
+  help: The framework you want to use for your typed client.
+  default: "typescript"
+  choices:
+    - "python"
+    - "typescript"
+    - "c#"
+
